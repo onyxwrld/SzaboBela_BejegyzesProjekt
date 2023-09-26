@@ -39,6 +39,27 @@ namespace SzaboBela_BejegyzesProjekt
             }
             sr.Close();
         }
+        static void feladat2d()
+        {
+            //A feladatot ugy értelmeztem hogy random bejegyzésnek adok N * 20 likot;
+            //véletlenszrű akkor lesz ha [0,1] intervallumban egy adott számot generál
+            Random a = new Random();
+            foreach (var item in lista)
+            {
+                int b = a.Next(0,2);
+                if (b==1)
+                {
+                    for (int i = 0; i < lista.Count * 20 ; i++)
+                    {
+                        item.Like();
+                    }
+                }
+                else
+                {
+
+                }
+            }
+        }
         static void Main(string[] args)
         {
             Bejegyzes a1 = new Bejegyzes("geza","rajosan geza");
@@ -46,6 +67,7 @@ namespace SzaboBela_BejegyzesProjekt
             lista.Add(a1);
             lista.Add(a2);
             feladat2b();
+            feladat2d();
             Console.ReadKey();
         }
     }
