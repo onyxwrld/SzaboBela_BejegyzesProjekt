@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,23 @@ namespace SzaboBela_BejegyzesProjekt
                 string szerzo = Console.ReadLine();
                 string tartalom = Console.ReadLine();
                 Bejegyzes a3 = new Bejegyzes(szerzo, tartalom);
+                lista.Add(a3);
             }
         }
-
+        static void feladat2c(string fileName)
+        {
+            StreamReader sr = new StreamReader(fileName);
+            while (!sr.EndOfStream)
+            {
+                string a = sr.ReadLine();
+                string[] s = a.Split(';');
+                string szerzo = s[0];
+                string tartalom = s[1];
+                Bejegyzes a1 = new Bejegyzes(szerzo,tartalom);
+                lista.Add(a1);
+            }
+            sr.Close();
+        }
         static void Main(string[] args)
         {
             Bejegyzes a1 = new Bejegyzes("geza","rajosan geza");

@@ -31,7 +31,7 @@ namespace SzaboBela_BejegyzesProjekt
             this.tartalom = tartalom;
             this.likeok = 0;
             this.letrejott = DateTime.Now;
-            this.szerkesztve = szerkesztve;
+            this.szerkesztve = DateTime.Now;
         }
 
         public void Like()
