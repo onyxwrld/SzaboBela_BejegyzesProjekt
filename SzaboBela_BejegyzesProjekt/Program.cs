@@ -91,6 +91,16 @@ namespace SzaboBela_BejegyzesProjekt
             string b = $"{a} db 15-nél kisebb szám van";
             return b;
         }
+        static void feladat3d()
+        {
+            List<Bejegyzes> SortedList = lista.OrderByDescending(o => o.Likeok).ToList();
+            StreamWriter sw = new StreamWriter("bejegyzesek_rendezett.txt");
+            for (int i = 0; i < SortedList.Count; i++)
+            {
+                sw.WriteLine($"{SortedList[i].Szerzo},{SortedList[i].Tartalom},{SortedList[i].Letrejott},{SortedList[i].Szerkesztve},{SortedList[i].Likeok}");
+            }
+            sw.Close();
+        }
         static void Main(string[] args)
         {
             Bejegyzes a1 = new Bejegyzes("geza","rajosan geza");
@@ -115,6 +125,7 @@ namespace SzaboBela_BejegyzesProjekt
                 Console.WriteLine("Nincs 35 felett like");
             }
             feladat3c();
+            feladat3d();
             Console.ReadKey();
         }
     }
