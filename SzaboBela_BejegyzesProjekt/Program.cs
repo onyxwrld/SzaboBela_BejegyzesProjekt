@@ -78,6 +78,19 @@ namespace SzaboBela_BejegyzesProjekt
             }
             return vane35felett;
         }
+        static string feladat3c()
+        {
+            int a = 0;
+            foreach (var item in lista)
+            {
+                if (item.Likeok<15)
+                {
+                    a++;
+                }
+            }
+            string b = $"{a} db 15-nél kisebb szám van";
+            return b;
+        }
         static void Main(string[] args)
         {
             Bejegyzes a1 = new Bejegyzes("geza","rajosan geza");
@@ -101,6 +114,7 @@ namespace SzaboBela_BejegyzesProjekt
             {
                 Console.WriteLine("Nincs 35 felett like");
             }
+            feladat3c();
             Console.ReadKey();
         }
     }
