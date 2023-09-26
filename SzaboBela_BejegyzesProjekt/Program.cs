@@ -60,6 +60,10 @@ namespace SzaboBela_BejegyzesProjekt
                 }
             }
         }
+        static void feladat2e()
+        {
+            Console.WriteLine("Adjon meg egy szöveget amire a 2. Bejegyzés fog módosulni");
+        }
         static void Main(string[] args)
         {
             Bejegyzes a1 = new Bejegyzes("geza","rajosan geza");
@@ -67,7 +71,12 @@ namespace SzaboBela_BejegyzesProjekt
             lista.Add(a1);
             lista.Add(a2);
             feladat2b();
+            feladat2c("bejegyzesek.csv");
             feladat2d();
+            foreach (var item in lista)
+            {
+                Console.WriteLine($"{item.Szerzo};{item.Tartalom};{item.Likeok}");
+            }
             Console.ReadKey();
         }
     }

@@ -22,18 +22,12 @@ namespace SzaboBela_BejegyzesProjekt
 
         public Bejegyzes(string szerzo, string tartalom)
         {
-
-        }
-
-        public Bejegyzes(string szerzo, string tartalom, int likeok, DateTime letrejott, DateTime szerkesztve)
-        {
             this.szerzo = szerzo;
             this.tartalom = tartalom;
             this.likeok = 0;
             this.letrejott = DateTime.Now;
             this.szerkesztve = DateTime.Now;
         }
-
         public void Like()
         {
             this.likeok++;
