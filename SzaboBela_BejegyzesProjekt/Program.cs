@@ -15,15 +15,23 @@ namespace SzaboBela_BejegyzesProjekt
         {
             //Ezt a feladatot így értelmeztem, nem vagyok biztos benne hogy ezt kérte tőlem a szerző.
             Console.WriteLine("Adjon meg darabszámot hogy hány bejegyzést szeretne hozzáadni:");
-            int szam = int.Parse(Console.ReadLine());
-            for (int i = 0; i < szam; i++)
+            if(int.Parse(Console.ReadLine())>-1)
             {
-                Console.WriteLine("Adjon meg egy szerzőt és tartalmat");
-                string szerzo = Console.ReadLine();
-                string tartalom = Console.ReadLine();
-                Bejegyzes a3 = new Bejegyzes(szerzo, tartalom);
-                lista.Add(a3);
+                int szam = int.Parse(Console.ReadLine());
+                for (int i = 0; i < szam; i++)
+                {
+                    Console.WriteLine("Adjon meg egy szerzőt és tartalmat");
+                    string szerzo = Console.ReadLine();
+                    string tartalom = Console.ReadLine();
+                    Bejegyzes a3 = new Bejegyzes(szerzo, tartalom);
+                    lista.Add(a3);
+                }
             }
+            else
+            {
+                Console.WriteLine("Hibás érték!");
+            }
+            
         }
         static void feladat2c(string fileName)
         {
@@ -53,6 +61,7 @@ namespace SzaboBela_BejegyzesProjekt
             Console.WriteLine("Adjon meg egy szöveget amire a 2. Bejegyzés fog módosulni");
             string a = Console.ReadLine();
             lista[1].Tartalom = a;
+            Console.WriteLine("A második elem változtatva lett");
         }
         static int feladat3a()
         {
@@ -71,7 +80,7 @@ namespace SzaboBela_BejegyzesProjekt
             bool vane35felett = false;
             foreach (var item in lista)
             {
-                if (item.Likeok>=35)
+                if (item.Likeok>35)
                 {
                     vane35felett = true;
                 }
