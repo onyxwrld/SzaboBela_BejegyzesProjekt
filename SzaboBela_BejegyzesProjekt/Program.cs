@@ -66,6 +66,18 @@ namespace SzaboBela_BejegyzesProjekt
             }
             return legnagyobb;
         }
+        static bool feladat3b()
+        {
+            bool vane35felett = false;
+            foreach (var item in lista)
+            {
+                if (item.Likeok>=35)
+                {
+                    vane35felett = true;
+                }
+            }
+            return vane35felett;
+        }
         static void Main(string[] args)
         {
             Bejegyzes a1 = new Bejegyzes("geza","rajosan geza");
@@ -80,7 +92,15 @@ namespace SzaboBela_BejegyzesProjekt
             {
                 Console.WriteLine($"{item.Szerzo};{item.Tartalom};{item.Likeok}");
             }
-            Console.WriteLine($"A like-ok száma {feladat3a()}"); 
+            Console.WriteLine($"A like-ok száma {feladat3a()}");
+            if (feladat3b())
+            {
+                Console.WriteLine("Van 35 felett like");
+            }
+            else
+            {
+                Console.WriteLine("Nincs 35 felett like");
+            }
             Console.ReadKey();
         }
     }
