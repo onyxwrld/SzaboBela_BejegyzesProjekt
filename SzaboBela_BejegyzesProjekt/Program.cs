@@ -41,19 +41,11 @@ namespace SzaboBela_BejegyzesProjekt
         }
         static void feladat2d()
         {
-            //A feladatot ugy értelmeztem hogy random bejegyzésnek adok N * 20 likot;
-            //véletlenszrű akkor lesz ha [0,1] intervallumban egy adott számot generál
             Random a = new Random();
-            for (int i = 0; i < lista.Count; i++)
+            for (int i = 0; i < lista.Count * 20; i++)
             {
                 int b = a.Next(0,lista.Count);
-                if (b==i)
-                {
-                    for (int k = 0; k < lista.Count * 20; k++)
-                    {
-                        lista[i].Like();
-                    }
-                }
+                lista[b].Like();
             }
         }
         static void feladat2e()
@@ -61,6 +53,18 @@ namespace SzaboBela_BejegyzesProjekt
             Console.WriteLine("Adjon meg egy szöveget amire a 2. Bejegyzés fog módosulni");
             string a = Console.ReadLine();
             lista[1].Tartalom = a;
+        }
+        static int feladat3a()
+        {
+            int legnagyobb = int.MinValue;
+            foreach (var item in lista)
+            {
+                if (item.Likeok>legnagyobb)
+                {
+                    legnagyobb = item.Likeok;
+                }
+            }
+            return legnagyobb;
         }
         static void Main(string[] args)
         {
@@ -76,6 +80,7 @@ namespace SzaboBela_BejegyzesProjekt
             {
                 Console.WriteLine($"{item.Szerzo};{item.Tartalom};{item.Likeok}");
             }
+            Console.WriteLine($"A like-ok száma {feladat3a()}"); 
             Console.ReadKey();
         }
     }
